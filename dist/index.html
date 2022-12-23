@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/style.css">
     <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Weather App</title>
   </head>
   <body>
-    <input type="text" id="location">
-    <button id="search">Search</button>
+    <div class="search">
+      <input type="text" id="location" placeholder="Find your location">
+      <button id="search">Search</button>
+    </div>
+    <div class="data"></div>
   </body>
 </html>
