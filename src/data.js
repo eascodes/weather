@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import showData from "./showData";
+
 const filterData = (data) => {
     const weatherObj = {
         name: data.name,
@@ -13,7 +15,7 @@ const filterData = (data) => {
         sunset: data.sys.sunset
     }
     console.log(weatherObj);
-    return weatherObj;
+    showData(weatherObj);
 }
 
 async function getData(location) {
