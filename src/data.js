@@ -11,8 +11,6 @@ const filterData = (data) => {
         humidity: data.main.humidity,
         temp_max: data.main.temp_max,
         temp_min: data.main.temp_min,
-        sunrise: data.sys.sunrise,
-        sunset: data.sys.sunset
     }
     console.log(weatherObj);
     showData(weatherObj);
