@@ -11,8 +11,27 @@ body {
 }
 
 input {
-    width: 20vw;
+    width: 200px;
     height: 30px;
     opacity: 0.5;
+}
+
+.search {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    padding: 15vh 0 15vh 0;
+}
+
+#search-button:hover {
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
 
