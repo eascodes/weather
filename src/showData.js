@@ -12,18 +12,21 @@ const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const showData = (obj) => {
     const locationArea = document.querySelector(".location");
-    const tempArea = document.querySelector(".temp");
-    const iconArea = document.querySelector(".icon");
+    const tempArea = document.querySelector(".temp-area");
+    const buttonArea = document.createElement("div");
+    const iconArea = document.querySelector(".icon-area");
     const detailsArea = document.querySelector(".details");
 
     const location = createElement("h1", obj.name, locationArea);
-    const fButton = createElement("button", "°F", locationArea);
-    const cButton = createElement("button", "°C", locationArea);
+  
     const temp = createElement("p", `${convertToF(obj.temp)}°F`, tempArea);
+    tempArea.appendChild(buttonArea);
+    const fButton = createElement("button", "°F", buttonArea);
+    const cButton = createElement("button", "°C", buttonArea);
     const icon = document.createElement("img");
 
     // Weather icon
-    icon.src = `http://openweathermap.org/img/wn/${obj.icon}@2x.png`;
+    icon.src = `http://openweathermap.org/img/wn/${obj.icon}.png`;
     icon.setAttribute("alt", obj.description);
     iconArea.appendChild(icon);
 
