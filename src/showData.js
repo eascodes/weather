@@ -21,22 +21,28 @@ const showData = (obj) => {
     const fButton = createElement("button", "°F", locationArea);
     const cButton = createElement("button", "°C", locationArea);
     const temp = createElement("p", `${convertToF(obj.temp)}°F`, tempArea);
-    //const weather = createElement("p", obj.weather, iconArea); //use this for pic matching?
+    // const weather = createElement("p", obj.weather, iconArea); //use this for pic matching?
     const description = createElement("p", capitalizeFirst(obj.description), iconArea);
-    const feels_like = createElement("p", `Feels like: ${convertToF(obj.feels_like)}°F`, detailsArea);
+    const feelsLike = createElement("p", `Feels like: ${convertToF(obj.feels_like)}°F`, detailsArea);
     const humidity = createElement("p", `Humidity: ${obj.humidity}%`, detailsArea);
-    const temp_max = createElement("p", `High: ${convertToF(obj.temp_max)}°F`, detailsArea);
-    const temp_min = createElement("p", `Low: ${convertToF(obj.temp_min)}°F`, detailsArea);
+    const tempMax = createElement("p", `High: ${convertToF(obj.temp_max)}°F`, detailsArea);
+    const tempMin = createElement("p", `Low: ${convertToF(obj.temp_min)}°F`, detailsArea);
 
     location.classList.add("location-header");
 
     // Toggle between F and C
     fButton.addEventListener("click", () => {
         temp.textContent = `${convertToF(obj.temp)}°F`;
+        feelsLike.textContent = `Feels like: ${convertToF(obj.feels_like)}°F`;
+        tempMax.textContent = `High: ${convertToF(obj.temp_max)}°F`;
+        tempMin.textContent = `Low: ${convertToF(obj.temp_min)}°F`;
     });
 
     cButton.addEventListener("click", () => {
         temp.textContent = `${convertToC(obj.temp)}°C`;
+        feelsLike.textContent = `Feels like: ${convertToC(obj.feels_like)}°C`;
+        tempMax.textContent = `High: ${convertToC(obj.temp_max)}°C`;
+        tempMin.textContent = `Low: ${convertToC(obj.temp_min)}°C`;
     })
 }
 
