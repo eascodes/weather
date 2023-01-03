@@ -11,6 +11,7 @@ const filterData = (data) => {
         humidity: data.main.humidity,
         temp_max: data.main.temp_max,
         temp_min: data.main.temp_min,
+        icon: data.weather[0].icon,
     }
     console.log(weatherObj);
     showData(weatherObj);

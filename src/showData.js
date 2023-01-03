@@ -11,7 +11,6 @@ const createElement = (type, textContent, parent) => {
 const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const showData = (obj) => {
-    const content = document.querySelector(".content");
     const locationArea = document.querySelector(".location");
     const tempArea = document.querySelector(".temp");
     const iconArea = document.querySelector(".icon");
@@ -21,7 +20,14 @@ const showData = (obj) => {
     const fButton = createElement("button", "°F", locationArea);
     const cButton = createElement("button", "°C", locationArea);
     const temp = createElement("p", `${convertToF(obj.temp)}°F`, tempArea);
-    // const weather = createElement("p", obj.weather, iconArea); //use this for pic matching?
+    const icon = document.createElement("img");
+
+    // Weather icon
+    icon.src = `http://openweathermap.org/img/wn/${obj.icon}@2x.png`;
+    icon.setAttribute("alt", obj.description);
+    iconArea.appendChild(icon);
+
+    // Weather descriptions
     const description = createElement("p", capitalizeFirst(obj.description), iconArea);
     const feelsLike = createElement("p", `Feels like: ${convertToF(obj.feels_like)}°F`, detailsArea);
     const humidity = createElement("p", `Humidity: ${obj.humidity}%`, detailsArea);
