@@ -37,7 +37,7 @@ input {
 
 .content {
     display: grid;
-    grid: 1fr 1fr 1fr / 1fr 1fr;
+    grid: 2fr 1fr 2fr / 1fr 1fr;
     grid-template-areas: 
         "location location"
         "temp icon"
@@ -62,8 +62,13 @@ input {
 
 .temp {
     font-size: 2.5rem;
-    margin: 0;
     grid-area: temp;
+    display: flex;
+    align-items: center;
+}
+
+.temp p {
+    margin: 0;
 }
 
 .icon {
@@ -72,4 +77,8 @@ input {
 
 .details {
     grid-area: details;
+}
+
+.details p {
+    margin: 0;
 }
