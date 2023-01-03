@@ -6,19 +6,39 @@ const createElement = (type, textContent, parent) => {
     varName.textContent = textContent;
     parent.appendChild(varName);
     return varName;
-} 
+}
+
+const createDiv = (className, parent) => {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add(className);
+    parent.appendChild(newDiv);
+    return newDiv;
+}
 
 const capitalizeFirst = (str) => str.charAt(0).toUpperCase() + str.slice(1)
 
-const showData = (obj) => {
-    const locationArea = document.querySelector(".location");
-    const tempArea = document.querySelector(".temp-area");
-    const buttonArea = document.createElement("div");
-    const iconArea = document.querySelector(".icon-area");
-    const detailsArea = document.querySelector(".details");
+const removeData = (content) => {
+    while (content.firstChild) {
+        content.removeChild(content.firstChild);
+    }
+}
 
+const showData = (obj) => {
+    const content = document.querySelector(".content");
+    removeData(content);
+    
+    // Create & append divs
+    createDiv("location", content);
+    const tempDiv = createDiv("temp", content);
+    const tempArea = createDiv("temp-area", tempDiv);
+    const iconDiv = createDiv("icon", content);
+    const iconArea = createDiv("icon-area", iconDiv);
+    createDiv("details", content);
+
+    const locationArea = document.querySelector(".location");
+    const buttonArea = document.createElement("div");
+    const detailsArea = document.querySelector(".details");
     const location = createElement("h1", obj.name, locationArea);
-  
     const temp = createElement("p", `${convertToF(obj.temp)}°F`, tempArea);
     tempArea.appendChild(buttonArea);
     const fButton = createElement("button", "°F", buttonArea);
@@ -31,9 +51,9 @@ const showData = (obj) => {
     iconArea.appendChild(icon);
 
     // Weather descriptions
-    const description = createElement("p", capitalizeFirst(obj.description), iconArea);
+    createElement("p", capitalizeFirst(obj.description), iconArea);
     const feelsLike = createElement("p", `Feels like: ${convertToF(obj.feels_like)}°F`, detailsArea);
-    const humidity = createElement("p", `Humidity: ${obj.humidity}%`, detailsArea);
+    createElement("p", `Humidity: ${obj.humidity}%`, detailsArea);
     const highLow = createElement("p", `High/Low: ${convertToF(obj.temp_max)}°F/${convertToF(obj.temp_min)}°F`, detailsArea);
 
     location.classList.add("location-header");
