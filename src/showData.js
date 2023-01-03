@@ -25,8 +25,7 @@ const showData = (obj) => {
     const description = createElement("p", capitalizeFirst(obj.description), iconArea);
     const feelsLike = createElement("p", `Feels like: ${convertToF(obj.feels_like)}°F`, detailsArea);
     const humidity = createElement("p", `Humidity: ${obj.humidity}%`, detailsArea);
-    const tempMax = createElement("p", `High: ${convertToF(obj.temp_max)}°F`, detailsArea);
-    const tempMin = createElement("p", `Low: ${convertToF(obj.temp_min)}°F`, detailsArea);
+    const highLow = createElement("p", `High/Low: ${convertToF(obj.temp_max)}°F/${convertToF(obj.temp_min)}°F`, detailsArea);
 
     location.classList.add("location-header");
 
@@ -34,15 +33,13 @@ const showData = (obj) => {
     fButton.addEventListener("click", () => {
         temp.textContent = `${convertToF(obj.temp)}°F`;
         feelsLike.textContent = `Feels like: ${convertToF(obj.feels_like)}°F`;
-        tempMax.textContent = `High: ${convertToF(obj.temp_max)}°F`;
-        tempMin.textContent = `Low: ${convertToF(obj.temp_min)}°F`;
+        highLow.textContent = `High/Low: ${convertToF(obj.temp_max)}°F/${convertToF(obj.temp_min)}°F`
     });
 
     cButton.addEventListener("click", () => {
         temp.textContent = `${convertToC(obj.temp)}°C`;
         feelsLike.textContent = `Feels like: ${convertToC(obj.feels_like)}°C`;
-        tempMax.textContent = `High: ${convertToC(obj.temp_max)}°C`;
-        tempMin.textContent = `Low: ${convertToC(obj.temp_min)}°C`;
+        highLow.textContent = `High/Low: ${convertToC(obj.temp_max)}°C/${convertToC(obj.temp_min)}°C`
     })
 }
 
