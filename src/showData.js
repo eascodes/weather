@@ -27,14 +27,13 @@ const showData = (obj) => {
     const content = document.querySelector(".content");
     removeData(content);
     
-    // Create & append divs
+    // Create & append elements to display weather data
     createDiv("location", content);
     const tempDiv = createDiv("temp", content);
     const tempArea = createDiv("temp-area", tempDiv);
     const iconDiv = createDiv("icon", content);
     const iconArea = createDiv("icon-area", iconDiv);
     createDiv("details", content);
-
     const locationArea = document.querySelector(".location");
     const buttonArea = document.createElement("div");
     const detailsArea = document.querySelector(".details");
@@ -70,6 +69,16 @@ const showData = (obj) => {
         feelsLike.textContent = `Feels like: ${convertToC(obj.feels_like)}°C`;
         highLow.textContent = `High/Low: ${convertToC(obj.temp_max)}°C/${convertToC(obj.temp_min)}°C`
     })
+}
+
+export const showError = (searchDiv) => {
+    const error = createElement("p", "Location not recognized - please try again", searchDiv);
+    error.classList.add("error");
+}
+
+export const removeError = (searchDiv) => {
+    const error = document.querySelector(".error");
+    searchDiv.removeChild(error);
 }
 
 export default showData;

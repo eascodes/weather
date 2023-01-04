@@ -18,6 +18,11 @@ input {
 
 .search {
     display: flex;
+    flex-direction: column;
+}
+
+.search-area {
+    display: flex;
     gap: 5px;
     justify-content: center;
     padding: 15vh 0 4vh 0;
@@ -25,6 +30,10 @@ input {
 
 #search-button:hover {
     cursor: pointer;
+}
+
+.error {
+    margin-top: 0;
 }
 
 .material-symbols-outlined {

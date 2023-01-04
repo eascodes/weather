@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
-import showData from "./showData";
+import showData, { removeError, showError } from "./showData";
 
 const filterData = (data) => {
+    // Create weather object with only relevant data
     const weatherObj = {
         name: data.name,
         weather: data.weather[0].main,
@@ -17,12 +18,21 @@ const filterData = (data) => {
 }
 
 async function getData(location) {
+    const searchDiv = document.querySelector(".search");
+
     try {
+        // Remove error message if one exists
+        if (searchDiv.querySelector(".error")) {
+            removeError(searchDiv);
+        }
+        
+        // Fetch data from API
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${  location  }&APPID=a19a9a696056416ad8f7e5a7816ff8f9`, {mode: 'cors'})
         const weatherData = await response.json();
         filterData(weatherData);
     } catch(err) {
-        console.log(err);
+        // Show error message if location not found
+        showError(searchDiv);
     }
   }
 
