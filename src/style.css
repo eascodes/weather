@@ -8,6 +8,12 @@ body {
   align-items: center;
   color: white;
   font-family: "Montserrat", sans-serif;
+  max-width: 1477px;
+}
+
+.header {
+  margin-top: 55px;
+  font-weight: 300;
 }
 
 input {
@@ -25,7 +31,7 @@ input {
   display: flex;
   gap: 5px;
   justify-content: center;
-  padding: 15vh 0 4vh 0;
+  padding: 5vh 0 4vh 0;
 }
 
 #search-button:hover {
